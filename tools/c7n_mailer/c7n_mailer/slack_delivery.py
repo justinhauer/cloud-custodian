@@ -97,16 +97,15 @@ class SlackDelivery(object):
 ##add in check to see if it's an email
                      # = resource.get()
                     # if e.startswith('tags'):
-                        tag_name = target.split(':', 1)[1]
-                        result = resource.get('tags', {}).get(tag_name, None)
-                        resolved_addrs = result
-                        slack_messages[resolved_addrs] = get_rendered_jinja(
-                            resolved_addrs, sqs_message,
-                            resource_list,
-                            self.logger, 'slack_template', 'slack_default',
-                            self.config['templates_folders'])
-                    else:
-                        return
+                tag_name = target.split(':', 1)[1]
+                result = resource.get('tags', {}).get(tag_name, None)
+                resolved_addrs = result
+                slack_messages[resolved_addrs] = get_rendered_jinja(
+                    resolved_addrs, sqs_message,
+                    resource_list,
+                    self.logger, 'slack_template', 'slack_default',
+                    self.config['templates_folders'])
+
                 self.logger.debug("Generating message for specified Slack channel.")
         return slack_messages
 
