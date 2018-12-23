@@ -91,12 +91,7 @@ class SlackDelivery(object):
                     resource_list,
                     self.logger, 'slack_template', 'slack_default',
                     self.config['templates_folders'])
-#begin new
             elif target.startswith('slackchannel') and 'tags' in resource:
-                #for e in sqs_message.get('action', ()).get('to'):
-##add in check to see if it's an email
-                     # = resource.get()
-                    # if e.startswith('tags'):
                 tag_name = target.split(':', 1)[1]
                 result = resource.get('tags', {}).get(tag_name, None)
                 resolved_addrs = result
