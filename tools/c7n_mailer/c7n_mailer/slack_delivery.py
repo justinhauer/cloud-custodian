@@ -91,11 +91,8 @@ class SlackDelivery(object):
                     resource_list,
                     self.logger, 'slack_template', 'slack_default',
                     self.config['templates_folders'])
-<<<<<<< HEAD
+
             elif target.startswith('schannel') and 'tags' in resource:
-=======
-            elif target.startswith('slackchannel') and 'tags' in resource:
->>>>>>> 3475b1ab2fbbde8fef29f67335e7ef0c069a62a1
                 tag_name = target.split(':', 1)[1]
                 result = resource.get('tags', {}).get(tag_name, None)
                 resolved_addrs = result
