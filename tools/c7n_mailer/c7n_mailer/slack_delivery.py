@@ -91,12 +91,7 @@ class SlackDelivery(object):
                     resource_list,
                     self.logger, 'slack_template', 'slack_default',
                     self.config['templates_folders'])
-#begin new
-            elif target.startswith('slackchannel') and 'tags' in resource:
-                #for e in sqs_message.get('action', ()).get('to'):
-##add in check to see if it's an email
-                     # = resource.get()
-                    # if e.startswith('tags'):
+            elif target.startswith('schannel') and 'tags' in resource:
                 tag_name = target.split(':', 1)[1]
                 result = resource.get('tags', {}).get(tag_name, None)
                 resolved_addrs = result
@@ -105,7 +100,6 @@ class SlackDelivery(object):
                     resource_list,
                     self.logger, 'slack_template', 'slack_default',
                     self.config['templates_folders'])
-
                 self.logger.debug("Generating message for specified Slack channel.")
         return slack_messages
 
@@ -177,9 +171,8 @@ class SlackDelivery(object):
                 headers={'Content-Type': 'application/json'})
         else:
             response = requests.post(
-                url=key,
+                url='https://slack.com/api/chat.postMessage',
                 data=message_payload,
-                headers={'Content-Type': 'application/json;charset=utf-8'})
                 headers={'Content-Type': 'application/json;charset=utf-8',
                          'Authorization': 'Bearer %s' % self.config.get('slack_token')})
 
