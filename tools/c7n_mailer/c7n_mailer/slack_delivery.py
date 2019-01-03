@@ -19,6 +19,7 @@ from c7n_mailer.ldap_lookup import Redis
 from c7n_mailer.utils import get_rendered_jinja
 from c7n_mailer.utils_email import is_email
 
+
 class SlackDelivery(object):
 
     def __init__(self, config, logger, email_handler):
@@ -66,8 +67,6 @@ class SlackDelivery(object):
                     resource_list,
                     self.logger, 'slack_template', 'slack_default',
                     self.config['templates_folders'])
-
-
             elif target.startswith('slack://webhook/#') and self.config.get('slack_webhook'):
                 webhook_target = self.config.get('slack_webhook')
                 slack_messages[webhook_target] = get_rendered_jinja(
