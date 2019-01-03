@@ -138,6 +138,7 @@ policies:
           - slack://foo@bar.com
           - slack://#custodian-test
           - slack://webhook/#c7n-webhook-test
+          - slack://tag/#resource_tag
           - https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX
         transport:
           type: sqs
@@ -157,6 +158,8 @@ Slack integration for the mailer supports several flavors of messaging, listed b
 | Yes       | `slack://foo@bar.com`     | string      | Send to the recipient specified by email address foo@bar.com |
 | Yes       | `slack://#custodian-test` | string      | Send to the Slack channel indicated in string, i.e. #custodian-test |
 | No        | `slack://webhook/#c7n-webhook-test` | string      | **(DEPRECATED)** Send to a Slack webhook; appended with the target channel. **IMPORTANT**: *This requires a `slack_webhook` value defined in the `mailer.yml`.* |
+
+Slack delivery can also be set via a resource tag. For example, using "slack://tag/slack_channel" could be used with a resource tag "slack_channel:https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX" to send to a specified webhook.
 
 ### Now run:
 

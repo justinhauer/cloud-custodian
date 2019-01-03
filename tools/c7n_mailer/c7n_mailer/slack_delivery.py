@@ -92,8 +92,8 @@ class SlackDelivery(object):
                     self.logger, 'slack_template', 'slack_default',
                     self.config['templates_folders'])
 
-            elif target.startswith('schannel') and 'tags' in resource:
-                tag_name = target.split(':', 1)[1]
+            elif target.startswith('slack://tag/') and 'tags' in resource:
+                tag_name = target.split('tag/', 1)[1]
                 result = resource.get('tags', {}).get(tag_name, None)
                 resolved_addrs = result
                 slack_messages[resolved_addrs] = get_rendered_jinja(
