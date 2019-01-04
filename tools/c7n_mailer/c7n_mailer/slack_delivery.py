@@ -90,7 +90,6 @@ class SlackDelivery(object):
                     resource_list,
                     self.logger, 'slack_template', 'slack_default',
                     self.config['templates_folders'])
-
             elif target.startswith('slack://tag/') and 'tags' in resource:
                 tag_name = target.split('tag/', 1)[1]
                 result = resource.get('tags', {}).get(tag_name, None)
