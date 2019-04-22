@@ -26,11 +26,10 @@ if path.exists(readme):
 
 setup(
     name="c7n_azure",
-    version='0.4',
+    version='0.5.3',
     description="Cloud Custodian - Azure Support",
     long_description=long_description,
     long_description_content_type='text/markdown',
-    include_package_data=True,
     classifiers=[
         "Topic :: System :: Systems Administration",
         "Topic :: System :: Distributed Computing"
@@ -51,6 +50,7 @@ setup(
                       "azure-mgmt-cosmosdb",
                       "azure-mgmt-compute",
                       "azure-mgmt-cdn",
+                      "azure-mgmt-containerregistry",
                       "azure-mgmt-containerservice",
                       "azure-mgmt-datalake-store",
                       "azure-mgmt-datafactory",
@@ -74,9 +74,10 @@ setup(
                       "PyJWT",
                       "c7n",
                       "requests",
-                      "azure-cli-core<=2.0.40",
-                      "adal~=1.0.0",
+                      "azure-cli-core",
+                      "adal",
                       "backports.functools_lru_cache",
+                      "future",
                       "futures>=3.1.1"],
     package_data={str(''): [str('function_binding_resources/bin/*.dll'),
                             str('function_binding_resources/*.csproj'),

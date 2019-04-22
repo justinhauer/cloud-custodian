@@ -26,6 +26,7 @@ import c7n_azure.resources.storage
 import c7n_azure.resources.sqlserver
 import c7n_azure.resources.vm
 import c7n_azure.resources.vnet
+import c7n_azure.resources.route_table
 import c7n_azure.resources.network_security_group
 import c7n_azure.resources.web_app
 import c7n_azure.resources.access_control
@@ -35,6 +36,7 @@ import c7n_azure.resources.cognitive_service
 import c7n_azure.resources.data_factory
 import c7n_azure.resources.iot_hub
 import c7n_azure.resources.cdn
+import c7n_azure.resources.container_registry
 import c7n_azure.resources.container_service
 import c7n_azure.resources.datalake_store
 import c7n_azure.resources.redis
